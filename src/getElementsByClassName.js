@@ -17,6 +17,10 @@ var getElementsByClassName = function (className, node) {
 		if (child.classList && child.classList.contains(className)) {
 			results.push(child);
 		}
+		var childResults = getElementsByClassName(className, child);
+		for (var j = 0; j < childResults.length; j++) {
+			results.push(childResults[j]);
+		}
 	}
 	
 	return results;
